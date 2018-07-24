@@ -14,8 +14,8 @@ app.controller('authCtrl', ['$scope','$rootScope','$routeParams','$location','$h
         //post to the server
         $http({
             method: 'POST',
-            url: 'https://kwamboka.herokuapp.com/auth',
-            //url: 'https://kwamboka.herokuapp.com/auth',
+            url: 'https://kwamboka.herokuapp.com/index.php/auth',
+            //url: 'https://kwamboka.herokuapp.com/index.php/auth',
             headers : {'Content-Type': 'application/json'},
             data:posTdata
         }).then(function successCallback(response) {
@@ -78,8 +78,8 @@ app.controller('authCtrl', ['$scope','$rootScope','$routeParams','$location','$h
         //post to the server
         $http({
             method: 'POST',
-            // url: 'https://kwamboka.herokuapp.com/auth',
-            url: 'https://kwamboka.herokuapp.com/register',
+            // url: 'https://kwamboka.herokuapp.com/index.php/auth',
+            url: 'https://kwamboka.herokuapp.com/index.php/register',
             headers : {'Content-Type': 'application/json'},
             data:posTdata
         }).then(function successCallback(response) {
@@ -109,7 +109,7 @@ app.controller('authCtrl', ['$scope','$rootScope','$routeParams','$location','$h
             //get Departments
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/departments',
+                url: 'https://kwamboka.herokuapp.com/index.php/departments',
                 headers : {'Content-Type': 'application/json'},
                 data: auth,
             }).then(function successCallback(response) {
@@ -127,7 +127,7 @@ app.controller('authCtrl', ['$scope','$rootScope','$routeParams','$location','$h
             //get Departments
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/contribution',
+                url: 'https://kwamboka.herokuapp.com/index.php/contribution',
                 headers : {'Content-Type': 'application/json'},
                 data: auth,
             }).then(function successCallback(response) {
@@ -148,7 +148,7 @@ app.controller('authCtrl', ['$scope','$rootScope','$routeParams','$location','$h
             });
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/memberget',
+                url: 'https://kwamboka.herokuapp.com/index.php/memberget',
                 headers : {'Content-Type': 'application/json'},
                 data: auth,
             }).then(function successCallback(response) {

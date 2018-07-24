@@ -37,7 +37,7 @@ app.controller('paymentCtrl', ['$scope','$rootScope','$routeParams','$location',
 
         $http({
             method: 'POST',
-            url: 'https://kwamboka.herokuapp.com/malipo',
+            url: 'https://kwamboka.herokuapp.com/index.php/malipo',
             headers : {'Content-Type': 'application/json'},
             data:data
         }).then(function successCallback(response) {
@@ -107,7 +107,7 @@ function ($scope, $rootScope, $routeParams, $location, $http, Data,toaster,$cook
         //post to the server
         $http({
             method: 'POST',
-            url: 'https://kwamboka.herokuapp.com/expenditure',
+            url: 'https://kwamboka.herokuapp.com/index.php/expenditure',
             headers : {'Content-Type': 'application/json'},
             data:data
         }).then(function successCallback(response) {
@@ -164,7 +164,7 @@ app.controller('contributionCtrl',['$scope','$rootScope','$routeParams','$locati
             });
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/departments',
+                url: 'https://kwamboka.herokuapp.com/index.php/departments',
                 headers : {'Content-Type': 'application/json'},
                 data: data,
             }).then(function successCallback(response) {
@@ -191,7 +191,7 @@ app.controller('contributionCtrl',['$scope','$rootScope','$routeParams','$locati
             });
             $http({
                  method:'POST',
-                url: 'https://kwamboka.herokuapp.com/contribution',
+                url: 'https://kwamboka.herokuapp.com/index.php/contribution',
                 headers : {'Content-Type': 'application/json'},
                 data: data,
             }).then(function successCallback(response) {
@@ -224,7 +224,7 @@ app.controller('contributionCtrl',['$scope','$rootScope','$routeParams','$locati
             //post to the server
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/contribution',
+                url: 'https://kwamboka.herokuapp.com/index.php/contribution',
                 headers : {'Content-Type': 'application/json'},
                 data:data
             }).then(function successCallback(response) {
@@ -251,7 +251,7 @@ app.controller('contributionCtrl',['$scope','$rootScope','$routeParams','$locati
             //post to the server
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/departments',
+                url: 'https://kwamboka.herokuapp.com/index.php/departments',
                 headers : {'Content-Type': 'application/json'},
                 data:data
             }).then(function successCallback(response) {
@@ -366,7 +366,7 @@ app.controller('contributionReportCtrl',[ '$scope','$rootScope','$routeParams','
             //post to the server
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/contribution_report',
+                url: 'https://kwamboka.herokuapp.com/index.php/contribution_report',
                 headers : {'Content-Type': 'application/json'},
                 data:reportData
             }).then(function successCallback(response) {
@@ -435,7 +435,7 @@ app.controller('contributionReportCtrl',[ '$scope','$rootScope','$routeParams','
             if (sessCookie!=" ") {
                 $http({
                     method: 'POST',
-                    url: 'https://kwamboka.herokuapp.com/malipo',
+                    url: 'https://kwamboka.herokuapp.com/index.php/malipo',
                     headers : {'Content-Type': 'application/json'},
                     data:delData
                 }).then(function successCallback(response) {
@@ -482,8 +482,8 @@ $scope.signUp = function (member) {
         //post to the server
         $http({
             method: 'POST',
-            url: 'https://kwamboka.herokuapp.com/register',
-            //url: 'https://kwamboka.herokuapp.com/auth',
+            url: 'https://kwamboka.herokuapp.com/index.php/register',
+            //url: 'https://kwamboka.herokuapp.com/index.php/auth',
             headers : {'Content-Type': 'application/json'},
             data:posTdata
         }).then(function successCallback(response) {
@@ -524,7 +524,7 @@ $scope.signUp = function (member) {
             //get Departments
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/departments',
+                url: 'https://kwamboka.herokuapp.com/index.php/departments',
                 headers : {'Content-Type': 'application/json'},
                 data: auth,
             }).then(function successCallback(response) {
@@ -570,8 +570,8 @@ app.controller('memberCtrl',['$scope','$rootScope','$routeParams','$location','$
         //post to the server
         $http({
             method: 'POST',
-            url: 'https://kwamboka.herokuapp.com/register',
-            //url: 'https://kwamboka.herokuapp.com/auth',
+            url: 'https://kwamboka.herokuapp.com/index.php/register',
+            //url: 'https://kwamboka.herokuapp.com/index.php/auth',
             headers : {'Content-Type': 'application/json'},
             data:posTdata
         }).then(function successCallback(response) {
@@ -615,7 +615,7 @@ app.controller('memberCtrl',['$scope','$rootScope','$routeParams','$location','$
             //post to the server
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/departments',
+                url: 'https://kwamboka.herokuapp.com/index.php/departments',
                 headers : {'Content-Type': 'application/json'},
                 data:data
             }).then(function successCallback(response) {
@@ -711,7 +711,7 @@ app.controller('expenditureReportCtrl',[ '$scope','$rootScope','$routeParams','$
             //post to the server
             $http({
                 method: 'POST',
-                url: 'https://kwamboka.herokuapp.com/expenditure_report',
+                url: 'https://kwamboka.herokuapp.com/index.php/expenditure_report',
                 headers : {'Content-Type': 'application/json'},
                 data:reportData
             }).then(function successCallback(response) {
@@ -779,8 +779,8 @@ app.controller('expenditureReportCtrl',[ '$scope','$rootScope','$routeParams','$
         //     //post to the server
         //     $http({
         //         method: 'POST',
-        //         url: 'https://kwamboka.herokuapp.com/auth',
-        //         //url: 'https://kwamboka.herokuapp.com/auth',
+        //         url: 'https://kwamboka.herokuapp.com/index.php/auth',
+        //         //url: 'https://kwamboka.herokuapp.com/index.php/auth',
         //         headers : {'Content-Type': 'application/json'},
         //         data:posTdata
         //     }).then(function successCallback(response) {
@@ -821,7 +821,7 @@ app.controller('expenditureReportCtrl',[ '$scope','$rootScope','$routeParams','$
         //     //get Departments
         //     $http({
         //         method: 'POST',
-        //         url: 'https://kwamboka.herokuapp.com/departments',
+        //         url: 'https://kwamboka.herokuapp.com/index.php/departments',
         //         headers : {'Content-Type': 'application/json'},
         //         data: auth,
         //     }).then(function successCallback(response) {
