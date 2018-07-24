@@ -1,0 +1,173 @@
+
+<!-- /.page-content -->
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Top Bar Start -->
+        <div class="topbar">
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a href="#" class="logo"><i class="md md-home"></i> <span>JKUSDA APP</span> </a>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="">
+                        <div class="pull-left">
+                            <button class="button-menu-mobile open-left waves-effect">
+                                <i class="md md-menu"></i>
+                            </button>
+                            <span class="clearfix"></span>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right pull-right">
+                            <li class="hidden-xs">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="" class="dropdown-toggle waves-effect" data-toggle="dropdown"
+                                           role="button" aria-haspopup="true" aria-expanded="false">
+                                            Welcome {{username}} <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Change Password</a></li>
+                                            <li role="menuitem" ng-click="logout()" class="logout">
+                                                <a href="">Log out</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="text-muted menu-title">Menu</li>
+                        <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                            <a href="#/dashboard">
+                                <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                                <span>Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                            <a href="#/signup">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                <span>Register</span>
+                            </a>
+                        </li>
+                        <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                            <a href="#/payment">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                <span>Payment</span>
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="#/expenditure">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                                <span>Expenditure</span>
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="#/contribution">
+                                <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                                <span>Contribution</span>
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="#/contribution_report">
+                                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                                <span>Contribution Reports</span>
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="#/expenditure_report">
+                                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                                <span>Expenditure Reports</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container">
+                    <!-- Page-Title -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Treasury</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default col-lg-10 col-lg-offset-1">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Add Member</h3>
+                            <p class="panel-sub-title font-13 text-muted">Register a new member</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Email</label>
+                                    <div class="col-md-10">
+                                        <input type="email" class="form-control" placeholder="Email" name="email" ng-model="signup.email" focus required />
+                                        <span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Name</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" placeholder="Name" ng-model="signup.name" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Phone</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" placeholder="Phone" name="phone" ng-model="signup.phone" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Type</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control margin-bottom-20" name="residence" required>
+                                            <option value="1">Student</option>
+                                            <option value="2">Associate</option>
+                                            <option value="3">Guest</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group pull-right">
+                                    <span class="control-label col-md-2"> </span>
+                                    <div class="col-sm-5">
+                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
+                                            Sign Up
+                                        </button>
+                                    </div>
+                                </div><br />
+                                <div class="form-group text-center">
+                                <span class="lbl col-sm-5"> </span>
+                                <div class="col-sm-7">
+                                    Already have an account? <a href="#/login">SignIn</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer text-right">
+            <small>&copy; 2017 - JKUSDA.</small>
+        </footer>
+    </div>
+

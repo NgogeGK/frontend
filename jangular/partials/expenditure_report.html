@@ -1,0 +1,195 @@
+<!-- Begin page -->
+<div id="wrapper">
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="#" class="logo"><i class="md md-home"></i> <span>JKUSDA APP</span> </a>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="">
+                    <div class="pull-left">
+                        <button class="button-menu-mobile open-left waves-effect">
+                            <i class="md md-menu"></i>
+                        </button>
+                        <span class="clearfix"></span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li class="hidden-xs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="" class="dropdown-toggle waves-effect" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        Welcome {{username}} <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Change Password</a></li>
+                                        <li role="menuitem" ng-click="logout()" class="logout">
+                                            <a href="">Log out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar End -->
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+            <div id="sidebar-menu">
+                <ul>
+                    <li class="text-muted menu-title">Menu</li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/dashboard">
+                            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                            <span>Dashboard </span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/signup">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/payment">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Payment</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                            <span>Expenditure</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution">
+                            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                            <span>Contribution</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Contribution Reports</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Expenditure Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Treasury</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <form name="expenditureReportForm">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <select name="singleSelect" class="form-control" ng-model="expenditureQuery.id">
+                                    <option value="" selected class="default">Choose a Department </option>
+                                    <option ng-repeat="department in departments" value="{{department.did}}">{{department.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-inline">
+                                <input id="datefrom" name="datefrom" type="date" class="form-inline form-control" ng-model="expenditureQuery.from"/>
+                                <label>- To -</label>
+                                <input id="dateto" name="dateto" type="date" class="form-inline form-control" ng-model="expenditureQuery.to"/>
+                                <span>
+                                    <button type="submit" class="btn btn-primary"
+                                            ng-click="getExpenditureReport(expenditureQuery)" data-ng-disabled="false">
+                                            <!--ng-click="getExpenditureReport(contributionQuery)" data-ng-disabled="contributionReportForm.$invalid">-->
+                                        Generate Report
+                                    </button>
+                                </span>
+                                <span class="dropdown pull-right">
+                                    <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
+                                    <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Export <span class="caret"></span></button>
+                                    <ul class="dropdown-menu pull-left" role="menu">
+                                        <li><a id="exportexcel" href="" onClick="$('#tableID').tableExport({type:'excel',escape:'false'});">Excel</a></li>
+                                        <li><a id="exportcsv" href="" onClick="$('#tableID').tableExport({type:'csv',escape:'false'});">CSV</a></li>
+                                        <li><a id="exportpdf" href="" onClick="$('#tableID').tableExport({type:'pdf',escape:'false'});">PDF</a></li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div><br />
+                <!--end-->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="content-inner">
+                            <!--report search-->
+                            <!--results start-->
+                            <div class="col-md-12">
+                                <table class="table table-striped" ng-hide="!expenditureReportData.length">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Department</th>
+                                            <th>Description</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in expenditureReportData track by (expenditureReportData.id + $index) | limitTo:contributionReportNumPerPage:(expenditureReportCurrentPage - 1) * expenditureReportNumPerPage" ng-init="setTotals(item)">
+                                            <td>{{}}</td>
+                                            <td>{{item.time_stamp }}</td>
+                                            <td>{{item.name }}</td>
+                                            <td>{{item.description}}</td>
+                                            <td> {{ item.amount | currency:" Kshs "}}</td>
+                                        </tr>
+                                        <tr class="bg-primary">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class=""><b>Totals</b></td>
+                                            <td class=""><b>{{expenditureTotal | currency:" Kshs "}}</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <uib-pagination ng-hide="!contributionReportData.length" total-items="totalContributionReportData" ng-model="contributionReportCurrentPage" max-size="contributionReportMaxSize" items-per-page="15" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                            </div>
+                            <!--results end-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-right">
+        <small>&copy; 2017 - JKUSDA.</small>
+    </footer>
+</div>
+
+
+

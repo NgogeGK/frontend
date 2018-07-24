@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="JKUSDA APP">
+    <meta name="author" content="namutare felix">
+
+    <title>JKUSDA APP</title>
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">-->
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/toaster.css" rel="stylesheet">
+    <link href="scripts/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="scripts/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="scripts/plugins/jquery-circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="content/css/core.css" rel="stylesheet" type="text/css">
+    <link href="content/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="content/css/components.css" rel="stylesheet" type="text/css">
+    <link href="content/css/pages.css" rel="stylesheet" type="text/css">
+    <link href="content/css/menu.css" rel="stylesheet" type="text/css">
+    <link href="content/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="content/css/chosen.min.css" rel="stylesheet" type="text/css">
+    <script src="scripts/js/modernizr.min.js"></script>
+
+    <!-- DataTables -->
+    <link href="scripts/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="scripts/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="scripts/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--<link href=scripts/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href=scripts/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+</head>
+
+  <body ng-cloak="" class="fixed-left">
+        <div data-ng-view="" id="ng-view" class=""></div>
+      <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+      <!-- Libs -->
+      <script src="js/angular.min.js"></script>
+      <script src="js/angular-route.min.js"></script>
+      <script src="js/angular-animate.min.js"></script>
+      <script src="js/angular-cookies.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/toaster.js"></script>
+      <script src="js/ngStorage.min.js"></script>
+      <script src="app/app.js"></script>
+      <script src="app/data.js"></script>
+      <script src="app/directives.js"></script>
+      <!---->
+      <script src="app/authCtrl.js"></script>
+      <script src="app/mainController.js"></script>
+      <!---->
+      <script src="js/site.js"></script>
+      <script src="js/ui-bootstrap.js"></script>
+      <a href="#" class="back-to-top hidden-print" style="display: inline;">
+          <i class="fa fa-arrow-circle-up"></i>
+      </a>
+
+      <!--SCRIPTS-->
+      <script>
+            var resizefunc = [];
+      </script>
+      <!-- Plugins  -->
+      <script src="scripts/js/jquery.min.js"></script>
+      <script src="scripts/js/bootstrap.min.js"></script>
+      <script src="scripts/js/detect.js"></script>
+      <script src="scripts/js/fastclick.js"></script>
+      <script src="scripts/js/jquery.slimscroll.js"></script>
+      <script src="scripts/js/chosen.jquery.js"></script>
+      <script src="scripts/js/jquery.blockUI.js"></script>
+      <script src="scripts/js/waves.js"></script>
+      <script src="scripts/js/wow.min.js"></script>
+      <script src="scripts/js/jquery.nicescroll.js"></script>
+      <script src="scripts/js/jquery.scrollTo.min.js"></script>
+      <script src="scripts/plugins/switchery/switchery.min.js"></script>
+      <!-- Moment  -->
+      <script src="scripts/plugins/moment/moment.js"></script>
+
+      <!-- Counter Up  -->
+      <script src="scripts/plugins/waypoints/lib/jquery.waypoints.js"></script>
+      <script src="scripts/plugins/counterup/jquery.counterup.min.js"></script>
+
+      <!-- Sweet Alert  -->
+      <script src="scripts/plugins/sweetalert/dist/sweetalert.min.js"></script>
+
+      <!-- circliful Chart -->
+      <script src="scripts/plugins/jquery-circliful/js/jquery.circliful.min.js"></script>
+      <script src="scripts/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+      <!-- Todos app  -->
+      <!--<script src="scripts/pages/jquery.todo.js"></script>-->
+
+      <!-- Chat App  -->
+      <!--<script src="scripts/pages/jquery.chat.js"></script>-->
+
+      <!-- Page js  -->
+      <!--<script src="scripts/pages/jquery.dashboard.js"></script>-->
+
+      <!-- Datatables-->
+      <script src="scripts/plugins/datatables/jquery.dataTables.min.js"></script>
+      <script src="scripts/plugins/datatables/dataTables.bootstrap.js"></script>
+      <script src="scripts/plugins/datatables/dataTables.buttons.min.js"></script>
+      <script src="scripts/plugins/datatables/buttons.bootstrap.min.js"></script>
+      <!--<script src="scripts/plugins/datatables/jszip.min.js"></script>-->
+      <script src="scripts/plugins/datatables/pdfmake.min.js"></script>
+      <script src="scripts/plugins/datatables/vfs_fonts.js"></script>
+      <script src="scripts/plugins/datatables/buttons.html5.min.js"></script>
+      <script src="scripts/plugins/datatables/buttons.print.min.js"></script>
+      <script src="scripts/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+      <script src="scripts/plugins/datatables/dataTables.keyTable.min.js"></script>
+      <script src="scripts/plugins/datatables/dataTables.responsive.min.js"></script>
+      <script src="scripts/plugins/datatables/responsive.bootstrap.min.js"></script>
+      <script src="scripts/plugins/datatables/dataTables.scroller.min.js"></script>
+      <script src="assets/plugins/jspdf/libs/base64.js"></script>
+      <script src="assets/plugins/jspdf/libs/sprintf.js"></script>
+
+      <!-- Datatable init js -->
+      <script src="assets/pages/datatables.init.js"></script>
+
+      <!-- Page js  -->
+      <!--<script src="assets/pages/jquery.dashboard.js"></script>-->
+      <!-- Custom main Js -->
+      <script src="assets/js/jquery.core.js"></script>
+      <script src="assets/js/jquery.app.js"></script>
+      <script src="assets/plugins/tableExport.js"></script>
+      <script src="assets/plugins/jquery.base64.js"></script>
+      <script src="assets/plugins/html2canvas.js"></script>
+      <script src="assets/plugins/jspdf/jspdf.js"></script>
+      <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="js/moment.min.js"></script>
+
+      <!-- Custom main Js -->
+      <script src="scripts/js/jquery.core.js"></script>
+      <script src="scripts/js/jquery.app.js"></script>
+
+      <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('.counter').counterUp({
+                delay: 100,
+                time: 1200
+            });
+            $('.circliful-chart').circliful();
+        });
+      </script>
+      <script>
+        function InputToUpper(obj) {
+            if (obj.value != "") {
+                obj.value = obj.value.toUpperCase();
+            }
+        }
+      </script>
+      <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatable').dataTable();
+                $('#datatable2').dataTable();
+                $('#datatable3').dataTable();
+                $('#datatable4').dataTable();
+                $('#datatable5').dataTable();
+                $('#datatable-keytable').DataTable( { keys: true } );
+                $('#datatable-responsive').DataTable();
+                var table = $('#datatable-fixed-header').DataTable( { fixedHeader: true } );
+            } );
+            TableManageButtons.init();
+
+      </script>
+      <script type="text/javascript">
+         var config = {
+             '.chosen-select': {},
+             '.chosen-select-deselect': { allow_single_deselect: true },
+             '.chosen-select-no-single': { disable_search_threshold: 6 },
+             '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+             '.chosen-select-width': { width: "95%"}//,
+             //'.chosen-search': {disable_search: false}
+         }
+         for (var selector in config) {
+             $(selector).chosen(config[selector]);
+         }
+      </script>
+      <script>
+        jQuery(document).ready(function() {
+            var offset = 250;
+            var duration = 300;
+            jQuery(window).scroll(function() {
+                if (jQuery(this).scrollTop() > offset) {
+                    jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+
+            jQuery('.back-to-top').click(function(event) {
+                event.preventDefault();
+                jQuery('html, body').animate({scrollTop: 0}, duration);
+                return false;
+            })
+        });
+      </script>
+      <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatable').dataTable();
+                $('#datatable2').dataTable();
+                $('#datatable-keytable').DataTable( { keys: true } );
+                $('#datatable-responsive').DataTable();
+                var table = $('#datatable-fixed-header').DataTable( { fixedHeader: true } );
+            } );
+            TableManageButtons.init();
+      </script>
+      <script>
+        $(document).ready(function () {
+            $('#exportexcel').bind('click', function (e) {
+                $('#tableID').tableExport({ type: 'excel', escape: 'false' });
+            });
+            $('#exportpdf').bind('click', function (e) {
+                $('#tableID').tableExport({ type: 'pdf', escape: 'false' });
+            });
+            $('#exportcsv').bind('click', function (e) {
+                $('#tableID').tableExport({ type: 'csv', escape: 'false' });
+            });
+
+        });
+      </script> 
+   </body>
+</html>
+
+

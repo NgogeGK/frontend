@@ -1,0 +1,236 @@
+
+<!-- Begin page -->
+<div id="wrapper">
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="#" class="logo"><i class="md md-home"></i> <span>JKUSDA APP</span> </a>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="">
+                    <div class="pull-left">
+                        <button class="button-menu-mobile open-left waves-effect">
+                            <i class="md md-menu"></i>
+                        </button>
+                        <span class="clearfix"></span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li class="hidden-xs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="" class="dropdown-toggle waves-effect" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        Welcome {{username}} <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Change Password</a></li>
+                                        <li role="menuitem" ng-click="logout()" class="logout">
+                                            <a href="">Log out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar End -->
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+            <div id="sidebar-menu">
+                <ul>
+                    <li class="text-muted menu-title">Menu</li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/dashboard">
+                            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                            <span>Dashboard </span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/signup">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/payment">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Payment</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                            <span>Expenditure</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution">
+                            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                            <span>Contribution</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Contribution Reports</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Expenditure Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Treasury</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="panel panel-default col-lg-10 col-lg-offset-1">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Add Contriution</h3>
+                                <p class="panel-sub-title font-13 text-muted">Register a new contributiion</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <select name="singleSelect" class="form-control" ng-model="contribution.id" required focus>
+                                            <option value="" default selected class="default">Choose a Department</option>
+                                            <option ng-repeat="department in departments" value="{{department.did}}">{{department.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Contribution name"
+                                               ng-model="contribution.contribution" required autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer text-right">
+                                <div class="btn-group">
+                                    <button type="submit" class="btn btn-primary "
+                                            ng-click="makeContribution(contribution)" data-ng-disabled="expenditureForm.$invalid">
+                                        Create Contribution
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-control">
+                                </div>
+                                <h3 class="panel-title">Contributions</h3>
+                                <p class="panel-sub-title font-13 text-muted">List of Contributions</p>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table id="datatable" class="table table-striped dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Department</th>
+                                            <th>Contribution Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="contribution in contributions | limitTo:contributionNumPerPage:(contributionCurrentPage - 1) * contributionNumPerPage">
+                                            <td>{{contribution.id}}</td>
+                                            <td>{{contribution.department}}</td>
+                                            <td>{{contribution.contribution}}</td>
+                                            <td><i class="fa fa-edit btn btn-warning"></i>  <i class="fa fa-remove btn btn-danger"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="panel panel-default col-lg-10 col-lg-offset-1">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Add Department</h3>
+                                <p class="panel-sub-title font-13 text-muted">Register a new department</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter a Department name"
+                                               ng-model="department.name" required autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer text-right">
+                                <div class="btn-group">
+                                    <button type="submit" class="btn btn-primary "
+                                            ng-click="createDepartment(department)" data-ng-disabled="departmentForm.$invalid">
+                                        Add Department
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-control">
+                                </div>
+                                <h3 class="panel-title">Departments</h3>
+                                <p class="panel-sub-title font-13 text-muted">List of Departments</p>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table id="datatable" class="table table-striped dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Department Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="department in departments | limitTo:departmentNumPerPage:(departmentCurrentPage - 1) * departmentNumPerPage">
+                                            <td>{{department.did}}</td>
+                                            <td>{{department.name}}</td>
+                                            <td><i class="fa fa-edit btn btn-warning"></i>  <i class="fa fa-remove btn btn-danger"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-right">
+        <small>&copy; 2017 - JKUSDA.</small>
+    </footer>
+</div>
+
+

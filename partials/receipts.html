@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue</title>
+
+	<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/styles.css">-->
+</head>
+<body>
+
+	<header>
+		<!--</div>-->
+		<style>
+			#wrapper{
+				border:1px solid black;
+				width:13cm;
+				height:6.1cm;
+				text-align: center;
+				font-family: arial;
+				margin-bottom: 0.34cm;
+
+			}
+			#content{
+				margin-top:0.2cm;
+				margin-bottom: 0.6cm;
+				margin-left:0.5cm;
+				margin-right: 1.3cm;
+			}
+			#top{
+				height:1cm;
+				width:11cm;
+				font-size:8px;
+				font-weight: bold;
+			}
+
+
+			#name{
+				width:8.8cm;
+				height:0.5cm;
+				padding-top: 0.1cm;
+				font-size: 8px;
+				float:left;
+			}
+
+			#tabular{
+
+				width:11.3cm;
+				/*height: 3.1cm;*/
+				/*margin-top: -0.5cm;*/
+				margin-bottom: 0.5cm;
+			}
+
+			#tabular-left{
+				border-collapse: collapse;
+				float:left;
+				width:5.4cm;
+				/*margin-right:0.6cm;*/
+			}
+			#tabular-right{
+				border-collapse: collapse;
+				width:5.4cm;
+				float:right;
+
+			}
+
+			td{
+				height: 0.4cm;
+				font-size: 8px;
+			}
+
+
+			#tr1{
+				width:1.6cm;
+
+				border:1px solid black;
+				padding-right:10/*0px;
+	padding-left:1%;*/
+			}
+			#tr2{
+				width:0.9cm;
+
+				border:1px solid black;
+				padding-right:10/*0px;
+	padding-left:1%;*/
+			}
+			#tr0{
+				width:2.9cm;
+				border-bottom:1px solid black;
+			}
+			#right{
+				float:left;
+				width:50%;
+			}
+			#sign{
+				font-size: 8px;
+				text-align: left;
+				margin-top: 4.25cm;
+			}
+		</style>
+	</header>
+
+	<div id="main">
+		
+		<div class="container" id="app">
+			<!--<h3>Report for the month of June</h3>-->
+			<!--<ul class="item-list">-->
+				<!--<li v-for="obj in posta">-->
+					<!--<receipt :item="obj"></receipt>-->
+				<!--</li>-->
+			<!--</ul>-->
+			<!--{{received}}-->
+			<!--<ul>-->
+				<!--<li v-for="item in received">{{item.name}}</li>-->
+			<!--</ul>-->
+			<subreddit v-for="item in received" :item = "item"
+								 ></subreddit>
+			<!--<summaryredit  name="Clifford Beta"></summaryredit>-->
+			<!--<subreddit  name="Clifford Beta"></subreddit>-->
+			<!--<subreddit  name="Clifford Beta"></subreddit>-->
+
+			<!--<subreddit name="Zeph Adar"></subreddit>-->
+			<!--&lt;!&ndash;<subreddit name="gifs"></subreddit>&ndash;&gt;-->
+			<!--<subreddit name="Samuel Mandila"></subreddit>-->
+			<!--<subreddit name="Obed Mokweri"></subreddit>-->
+			<!--<subreddit name="Wilbur Omae"></subreddit>-->
+			<!--<subredit v-for="obj in posts">-->
+			<!--&lt;!&ndash;<post :item="obj"></post>&ndash;&gt;-->
+			<!--</subredit>-->
+			<div style="margin-top: 15cm;">
+				<span> SUMMARY</span>
+				<table style="border-collapse: collapse; width: 50%;border:1px solid black">
+					<thead style="margin-top: -0.25cm; font-weight: 900; border:1px solid black">
+						<!--<td style="width:50%;">Shs</td>-->
+						<td style="width:50%;;text-align: center;border:1px solid black">Contribution</td>
+						<td style="width:50%;;text-align: center;border:1px solid black">Amount</td>
+					</thead>
+					<tr style="margin-top: -0.25cm;  border:1px solid black"
+							v-for="sum in summary" >
+					<!--<td style="width:50%;">Shs</td>-->
+					<td style="width:50%;;text-align: center;border:1px solid black">{{sum.name}}</td>
+					<td style="width:50%;;text-align: center;border:1px solid black">{{sum.amount}}</td>
+					</tr>
+					<tr style="margin-top: -0.25cm;  border:1px solid black">
+						<!--<td style="width:50%;">Shs</td>-->
+						<td style="width:50%;text-align: center;border:1px solid black">Trust Fund</td>
+						<td style="width:50%;text-align: center;border:1px solid black">{{trustFund}}</td>
+					</tr>
+					<tr style="margin-top: -0.25cm;  border:1px solid black"
+					>
+						<!--<td style="width:50%;">Shs</td>-->
+						<td style="width:50%;;text-align: center;border:1px solid black">Total</td>
+						<td style="width:50%;;text-align: center;border:1px solid black">{{ sumTotal}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+	<template id="subreddit">
+
+		<div class="subreddit">
+			<!--<h2>{{item}}</h2>-->
+			<div id="wrapper">
+				<div id="content">
+					<div id='top'>
+						<div style="float:left" >
+							<p>SEVENTH DAY ADVENTIST CHURCH<br>
+								CENTRAL KENYA CONFERENCE<br>
+								PO BOX 41352, NAIROBI.</p>
+						</div>
+						<div  style="padding:0.25cm;">
+							<span>No:&nbsp; <span>{{item.receipt_no}}</span></span></span><br>
+						</div>
+					</div>
+					<div id="name">
+						<span style="float:left;">NAME &nbsp;<span>{{item.name}}</span></span></span><br>
+					</div>
+
+					<div id="tabular">
+
+
+						<div id="tabular-left">
+							<table style="border-collapse: collapse;">
+								<tr style="margin-top: -0.25cm;">
+									<td style="width:2.9cm;"></td>
+									<td style="width:1.6cm;text-align: center;"></td>
+									<td style="width:0.9cm;text-align: center;"></td>
+								</tr>
+								<tr>
+									<td id="tr0">Tithe 10%</td>
+									<td id="tr1">{{item.contributions.Tithe}}</td>
+									<td id="tr2">{{tithe_cts}}</td>
+								</tr>
+								<tr>
+									<td id="tr0">{{name_1}} </td>
+									<td id="tr1">{{shs_1}}</td>
+									<td id="tr2">{{cts_1}}</td>
+								</tr>
+								<tr>
+									<td id="tr0">{{name_2}} </td>
+									<td id="tr1">{{shs_2}}</td>
+									<td id="tr2">{{cts_2}}</td>
+								</tr>
+								<tr>
+									<td id="tr0">Combined Offering 10%+</td>
+									<td id="tr1">{{item.contributions["Combined Offering"]}}</td>
+									<td id="tr2">{{combined_cts}}</td>
+								</tr>
+								<tr>
+									<td id="tr0"> {{name_3}}</td>
+									<td id="tr1">{{shs_3}}</td>
+									<td id="tr2">{{cts_3}}</td>
+								</tr>
+								<tr>
+									<td id="tr0">Camp Meeting Offerings</td>
+									<td id="tr1">{{item.contributions["Camp Offering"]}}</td>
+									<td id="tr2">{{camp_cts}}</td>
+								</tr>
+							</table>
+						</div>
+						<div id="tabular-right">
+							<table style="border-collapse: collapse;">
+								<tr style="margin-top: -0.25cm;">
+									<td style="width:2.9cm;"></td>
+									<td style="width:1.6cm;text-align: center;">Shs.</td>
+									<td style="width:0.9cm;text-align: center;">Cts.</td>
+								</tr>
+								<tr>
+									<td id="tr0">{{name_4}} </td>
+									<td id="tr1">{{shs_4}}</td>
+									<td id="tr2">{{cts_4}}</td>
+								</tr>
+								<tr>
+									<td id="tr0"> {{name_5}}</td>
+									<td id="tr1">{{shs_5}}</td>
+									<td id="tr2">{{cts_5}}</td>
+								</tr>
+								<tr>
+									<td id="tr0"> Building Fund</td>
+									<td id="tr1">{{item.contributions["Church Building"]}}</td>
+									<td id="tr2">{{build_cts}}</td>
+								</tr>
+								<tr>
+									<td id="tr0"> {{name_6}}</td>
+									<td id="tr1">{{shs_6}}</td>
+									<td id="tr2">{{cts_6}}</td>
+								</tr>
+								<tr>
+									<td id="tr0">{{name_7}} </td>
+									<td id="tr1">{{shs_7}}</td>
+									<td id="tr2">{{cts_7}}</td>
+								</tr>
+								<tr><td >Total</td>
+									<td id="tr1" style="border-bottom: 5px solid black;">{{totalier(item.contributions)}}</td>
+									<td id="tr2" style="border-bottom: 5px solid black;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+					<div id="sign">
+						<div style="width:4.6cm;display: inline-block;">Church/Kundi.&nbsp;<span>{{church}}</span></div><div style="width:4.2cm;display: inline-block;">Treasurer&nbsp;<span>{{treasurer}}</span></div><div style="width:2.3cm;display: inline-block;">Date&nbsp;<span>{{item.date}}</span></div><br>
+					</div>
+
+				</div>
+			</div>
+		</div>
+			<ul class="item-list">
+				<Receipt></Receipt>
+				<li v-for="obj in received">1
+
+					<!--<receipt :item="obj"></receipt>-->
+				</li>
+			</ul>
+		</div>
+
+	</template>
+
+	<template id="summaryredit">
+
+		<div class="summaryreddit">
+			<!--<h2>{{item}}</h2>-->
+			<div id="wrapper">
+				<div id="content">
+					<div id='top'>
+						<div style="float:left" >
+							<p>SEVENTH DAY ADVENTIST CHURCH<br>
+								CENTRAL KENYA CONFERENCE<br>
+								PO BOX 41352, NAIROBI.</p>
+						</div>
+						<div  style="padding:0.25cm;">
+							<span>No:&nbsp; <span>{{item.receipt_no}}</span></span></span><br>
+						</div>
+					</div>
+					<div id="name">
+						<span style="float:left;">NAME &nbsp;<span>{{item.name}}</span></span></span><br>
+					</div>
+
+					<div id="tabular">
+
+
+						<!--<div id="tabular-left">-->
+							<table style="border-collapse: collapse;">
+								<tr style="margin-top: -0.25cm;">
+									<td style="width:50%;">Shs</td>
+									<td style="width:50%;;text-align: center;">Shs</td>
+									<td style="width:50%;;text-align: center;">Shs</td>
+								</tr>
+							</table>
+						<!--</div>-->
+
+					</div>
+
+					<div id="sign">
+						<div style="width:4.6cm;display: inline-block;">Church/Kundi.&nbsp;<span>{{church}}</span></div><div style="width:4.2cm;display: inline-block;">Treasurer&nbsp;<span>{{treasurer}}</span></div><div style="width:2.3cm;display: inline-block;">Date&nbsp;<span>{{item.date}}</span></div><br>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<ul class="item-list">
+			<Receipt></Receipt>
+			<li v-for="obj in received">1
+
+				<!--<receipt :item="obj"></receipt>-->
+			</li>
+		</ul>
+		</div>
+
+	</template>
+
+	<script src="assets/js/vue.js"></script>
+	<script src="assets/js/vue-resource.min.js"></script>
+	<script src="assets/js/axios.js"></script>
+	<script src="assets/js/script.js"></script>
+<script>
+
+</script>
+</body>
+</html>

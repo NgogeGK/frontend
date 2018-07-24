@@ -1,0 +1,230 @@
+﻿
+<!-- Begin page -->
+<div id="wrapper">
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="#" class="logo"><i class="md md-home"></i> <span>JKUSDA APP</span> </a>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="">
+                    <div class="pull-left">
+                        <button class="button-menu-mobile open-left waves-effect">
+                            <i class="md md-menu"></i>
+                        </button>
+                        <span class="clearfix"></span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li class="hidden-xs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="" class="dropdown-toggle waves-effect" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        Welcome {{username}} <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Change Password</a></li>
+                                        <li role="menuitem" ng-click="logout()" class="logout">
+                                            <a href="">Log out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar End -->
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+            <div id="sidebar-menu">
+                <ul>
+                    <li class="text-muted menu-title">Menu</li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/dashboard">
+                            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                            <span>Dashboard </span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/signup">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/payment">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Payment</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                            <span>Expenditure</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution">
+                            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                            <span>Contribution</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Contribution Reports</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Expenditure Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Treasury</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="md md-group text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Landlords</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>All available landlords</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="md md-people-outline text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Tenants</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>All tenants</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="md md-perm-contact-cal text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Residential</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>Rental & For Sale</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="md md-store text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Commercial</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>Rental & For Sale</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="fa fa-file-text text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Rental Invoices</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>Value: 0.00</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Member Loans</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>Value: 0.00</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="fa fa-th-list text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Shareholders</p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>Value: 0.00</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card-box widget-icon">
+                            <div>
+                                <i class="fa fa-money text-primary"></i>
+                                <div class="wid-icon-info">
+                                    <p class="text-muted m-b-5 font-13 text-uppercase">Revenue~ <small>0.00</small></p>
+                                    <h4 class="m-t-0 m-b-5 counter">0.00</h4>
+                                    <small class="text-success"><b>Various Sources</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-right">
+        <small>&copy; 2017 - JKUSDA.</small>
+    </footer>
+</div>
+
+
+

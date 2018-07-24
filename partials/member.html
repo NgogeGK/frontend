@@ -1,0 +1,158 @@
+<div class="row display-table-row">
+    <!--sidebar-->
+    <div class="col-md-2 display-table-cell valign-top" id="side-menu">
+        <h1>Dashboard</h1>
+        <ul>
+        <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                <a href="#/signup" >
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    <span>Register</span>
+                </a>
+            </li>
+            <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                <a href="#/payment" >
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    <span>Payment</span>
+                </a>
+            </li>
+            <li class="link">
+                <a href="#/expenditure">
+                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                    <span>Expenditure</span>
+                </a>
+            </li>
+            <li class="link">
+                <a href="#/contribution">
+                    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                    <span>Contribution</span>
+                </a>
+            </li>
+            <li class="link">
+                <a href="#/contribution_report">
+                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                    <span>Reports</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--sidebar-->
+    <!--main content-->
+    <div class="col-md-10 display-table-cell valign-top">
+            <div class="row">
+                <header id="nav-header" class="clearfix">
+                    <div class=" pull-right" uib-dropdown is-open="status.isopen">
+                        <class style="padding: 15px; padding-bottom: 0px;"id="single-button" class="" uib-dropdown-toggle ng-disabled="disabled"> Welcome {{username}} <strong class="caret"></strong>
+                        </class>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem" ng-click="logout()" class="logout"><a href="">Log out</a></li>
+                            <li class="divider"></li>
+                        </ul>
+                    </div>
+                </header>
+            </div>
+
+        <!--content-->
+            <header>
+                <h2 id="page_title">{{activity}}</h2>
+            </header>
+            <div class="content-inner">
+                <!--contribution row-->
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-wrapper">
+                            <form name="expenditureForm">
+                                <div class="form-group">
+                                    <select name="singleSelect" class="form-control" ng-model="contribution.id" required focus>
+                                        <option value="" default selected class="default">Choose a Department</option>
+                                        <option ng-repeat="department in departments" value="{{department.did}}">{{department.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Contribution name"
+                                           ng-model="contribution.contribution" required autocomplete="off" />
+                                </div>
+                                <button type="submit" class="btn btn-primary "
+                                        ng-click="makeContribution(contribution)" data-ng-disabled="expenditureForm.$invalid" >Create Contribution</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Department</th>
+                                    <th>Contribution Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="contribution in contributions | limitTo:contributionNumPerPage:(contributionCurrentPage - 1) * contributionNumPerPage">
+                                    <td>{{contribution.id}}</td>
+                                    <td>{{contribution.department}}</td>
+                                    <td>{{contribution.contribution}}</td>
+                                    <td><i class="fa fa-edit btn btn-warning"></i>  <i class="fa fa-remove btn btn-danger"></i></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <uib-pagination total-items="totalContributions" ng-model="contributionCurrentPage" max-size="contributionMaxSize" items-per-page="3" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    </div>
+                </div>
+                <!--contribution row-->
+                <!--create department row-->
+                <div class="row">
+                    <h2>Create a Department</h2>
+                    <div class="col-md-5">
+                        <div class="form-wrapper">
+                            <form name="departmentForm">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter a Department name"
+                                           ng-model="department.name" required autocomplete="off" />
+                                </div>
+                                <button type="submit" class="btn btn-primary "
+                                        ng-click="createDepartment(department)" data-ng-disabled="departmentForm.$invalid" >Add Department</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Department Name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="department in departments | limitTo:departmentNumPerPage:(departmentCurrentPage - 1) * departmentNumPerPage">
+                                <td>{{department.did}}</td>
+                                <td>{{department.name}}</td>
+                                <td><i class="fa fa-edit btn btn-warning"></i>  <i class="fa fa-remove btn btn-danger"></i></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <uib-pagination total-items="totalDepartments" ng-model="departmentCurrentPage" max-size="departmentMaxSize" items-per-page="3" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    </div>
+
+                 </div>
+                <!--create department-->
+            </div>
+            <!--FOOTER-->
+            <div class="row">
+                <footer id="admin-footer" class="clearfix">
+                    <div class="pull-left"><b>Copyright </b>&copy; 2017</div>
+                    <div class="pull-right">Treasury system</div>
+                </footer>
+            </div>
+            <!--FOOTER-->
+
+    </div>
+
+</div>
+
+<!--main content-->
+</div>
+
+

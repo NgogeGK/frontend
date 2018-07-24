@@ -1,0 +1,161 @@
+
+<!-- Begin page -->
+<div id="wrapper">
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="#" class="logo"><i class="md md-home"></i> <span>JKUSDA APP</span> </a>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="">
+                    <div class="pull-left">
+                        <button class="button-menu-mobile open-left waves-effect">
+                            <i class="md md-menu"></i>
+                        </button>
+                        <span class="clearfix"></span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li class="hidden-xs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="" class="dropdown-toggle waves-effect" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        Welcome {{username}} <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Change Password</a></li>
+                                        <li role="menuitem" ng-click="logout()" class="logout">
+                                            <a href="">Log out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar End -->
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+            <div id="sidebar-menu">
+                <ul>
+                    <li class="text-muted menu-title">Menu</li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/dashboard">
+                            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                            <span>Dashboard </span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/signup">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li class="link" ng-class="{'active':isLinkActive}" ng-click="activeButtonClass();">
+                        <a href="#/payment">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <span>Payment</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                            <span>Expenditure</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution">
+                            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                            <span>Contribution</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/contribution_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Contribution Reports</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#/expenditure_report">
+                            <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                            <span>Expenditure Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Treasury</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default col-lg-10 col-lg-offset-1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add Expenditure</h3>
+                        <p class="panel-sub-title font-13 text-muted">Register a new expenditure</p>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Department</label>
+                                <div class="col-md-10">
+                                    <select name="singleSelect" class="form-control" ng-model="expenditure.id" required>
+                                        <option value="" selected class="default">Choose a Department </option>
+                                        <option ng-repeat="department in departments" value="{{department.did}}">{{department.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Amount</label>
+                                <div class="col-md-10">
+                                    <input type="number" class="form-control" placeholder="Amount"
+                                           ng-model="expenditure.amount" required autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Description</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" placeholder="Description"
+                                           ng-model="expenditure.description" required autocomplete="off" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-danger " type="reset"><i class="fa fa-bomb"></i>&nbsp;<strong>Cancel</strong></button>
+                            <button type="submit" class="btn btn-sm btn-primary " ng-click="makeExpenditure(expenditure)" data-ng-disabled="expenditureForm.$invalid">
+                                <i class="fa fa-check"></i>&nbsp;<strong>Make Expenditure</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-right">
+        <small>&copy; 2017 - JKUSDA.</small>
+    </footer>
+</div>
+
+
